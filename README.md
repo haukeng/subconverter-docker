@@ -14,7 +14,7 @@ docker run  -d --name=subconverter --restart=always -p 25500:25500 haukeng/subco
 ```
 > 如需自定义分组配置,可挂载 **-v ~/groups.txt:/base/snippets/groups.txt** 参数.  
 
-### 免费提供订阅转换地址
+### 使用方法
 具体使用教程请参考原版 [tindy2013/subconverter](https://github.com/tindy2013/subconverter) 项目
 
 ## Nginx反向代理
