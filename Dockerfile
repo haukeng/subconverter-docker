@@ -1,7 +1,7 @@
 FROM alpine:3.8
 LABEL maintainer="Haukeng"
 
-ENV VERSION v0.6.1
+ENV VERSION v0.6.2
 
 WORKDIR /base
 RUN apk add wget tzdata && \
