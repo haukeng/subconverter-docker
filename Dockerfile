@@ -11,6 +11,12 @@ RUN apk add wget tzdata && \
     tar xzf subconverter_linux64.tar.gz && \
     rm -rf subconverter_linux64.tar.gz && \
     sed -i '/TW/s/🇨🇳/🇹🇼/g' /base/subconverter/snippets/emoji.txt && \
+    echo '(?i:李家坡),🇸🇬' >> /base/subconverter/snippets/emoji.txt && \
+    echo '(?i:多倫多),🇨🇦' >> /base/subconverter/snippets/emoji.txt && \
+    echo '(?i:東京),🇯🇵' >> /base/subconverter/snippets/emoji.txt && \
+    echo '(?i:美國),🇺🇸' >> /base/subconverter/snippets/emoji.txt && \
+    echo '(?i:首爾),🇰🇷' >> /base/subconverter/snippets/emoji.txt && \
+    echo '(?i:斯德哥爾摩),🇸🇪' >> /base/subconverter/snippets/emoji.txt && \
     apk del wget tzdata
 
 COPY groups.txt /base/subconverter/snippets
