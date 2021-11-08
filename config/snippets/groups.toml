@@ -1,0 +1,127 @@
+[[custom_groups]]
+name = "🔰 默认节点"
+type = "select"
+rule = [
+    "[]♻️ 自动选择",
+    "[]🎯 默认直连",
+    ".*"
+]
+
+[[custom_groups]]
+name = "♻️ 自动选择"
+type = "url-test"
+rule = [".*"]
+url = "http://www.gstatic.com/generate_204"
+interval = 1800
+
+[[custom_groups]]
+name = "🌍 国际流媒体"
+type = "select"
+rule = [
+    "[]🔰 默认节点",
+    "[]🎯 默认直连",
+    ".*"
+]
+
+[[custom_groups]]
+name = "🎞️ NETFLIX"
+type = "select"
+rule = [
+    "[]🌍 国际流媒体",
+    ".*"
+]
+
+[[custom_groups]]
+name = "🎞️ HBO"
+type = "select"
+rule = [
+    "[]🌍 国际流媒体",
+    ".*"
+]
+
+[[custom_groups]]
+name = "🎞️ Disney+"
+type = "select"
+rule = [
+    "[]🌍 国际流媒体",
+    ".*"
+]
+
+[[custom_groups]]
+name = "📺 中国流媒体"
+type = "select"
+rule = [
+    "[]🎯 默认直连",
+    "[]🔰 默认节点",
+    "[]🌍 国际流媒体",
+    "(HGC|HKBN|PCCW|HKT|深台|彰化|新北|台|hk|港|tw)"
+]
+
+[[custom_groups]]
+name = "Ⓜ️ Microsoft"
+type = "select"
+rule = [
+    "[]🔰 默认节点",
+    "[]🎯 默认直连",
+    ".*"
+]
+
+[[custom_groups]]
+name = "🍎 Apple"
+type = "select"
+rule = [
+    "[]🔰 默认节点",
+    "[]🎯 默认直连",
+    ".*"
+]
+
+[[custom_groups]]
+name = "💰 PayPal"
+type = "select"
+rule = [
+    "[]🔰 默认节点",
+    "[]🎯 默认直连",
+    ".*"
+]
+
+[[custom_groups]]
+name = "🎓 学术"
+type = "select"
+rule = [
+    "[]🔰 默认节点",
+    "[]🎯 默认直连",
+    ".*"
+]
+
+[[custom_groups]]
+name = "📲 Telegram"
+type = "select"
+rule = [
+    "[]🔰 默认节点",
+    ".*"
+]
+
+[[custom_groups]]
+name = "🎯 默认直连"
+type = "select"
+rule = [
+    "[]DIRECT",
+    "[]🔰 默认节点"
+]
+
+[[custom_groups]]
+name = "🛑 默认拦截"
+type = "select"
+rule = [
+    "[]REJECT", 
+    "[]DIRECT",
+    "[]🔰 默认节点"
+]
+
+[[custom_groups]]
+name = "🕳️ 规则之外"
+type = "select"
+rule = [
+    "[]🔰 默认节点",
+    "[]🎯 默认直连"
+]
