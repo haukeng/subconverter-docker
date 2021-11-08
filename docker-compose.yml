@@ -1,0 +1,8 @@
+version: '3'
+services:
+  subconverter:
+    image: ghcr.io/haukeng/subconverter
+    container_name: subconverter
+    restart: always
+    ports:
+      - "25500:25500"
