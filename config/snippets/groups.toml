@@ -106,7 +106,7 @@ name = "🎯 默认直连"
 type = "select"
 rule = [
     "[]DIRECT",
-    "[]🔰 默认节点"
+    ".*"
 ]
 
 [[custom_groups]]
