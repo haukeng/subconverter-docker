@@ -7,11 +7,12 @@ on:
     types: [published]
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: haukeng/subconverter
+  DH_IMAGE_NAME: thehaukeng/subconverter
+  GH_IMAGE_NAME: haukeng/subconverter
 
 jobs:
   build-and-push-image:
+    name: Push Docker image to Docker Hub and GitHub
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -27,10 +28,16 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       
@@ -38,7 +45,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: |
+            ${{ env.DH_IMAGE_NAME }}
+            ghcr.io/${{ env.GH_IMAGE_NAME }}
           labels: |
             org.opencontainers.image.title=subconverter
             org.opencontainers.image.description=Customized docker image for subconverter by Haukeng

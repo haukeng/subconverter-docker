@@ -1,7 +1,10 @@
 # subconverter-docker
+
 ## 简介
+
 subconverter-docker 是基于 [tindy2013/subconverter][1] 项目的自定义 Docker 镜像，相关使用方法请参考[原项目文档][2]。相比于原项目，本项目原主要修改了以下的内容：
 
+- **默认启用 API 模式，需要设置环境变量** `SUB_PASSWORD`
 - **分组规则调整**
     - 将`自动选择`间隔设定为 1800 秒
     - 调整了原项目大部分的分组名字
@@ -20,19 +23,30 @@ subconverter-docker 是基于 [tindy2013/subconverter][1] 项目的自定义 Doc
     - 添加了更多地区的 emoji
 
 ## 部署
+
 ### docker 部署
+
 ```shell
-docker run -d --name=subconverter --restart=always -p 25500:25500 ghcr.io/haukeng/subconverter
+docker run -d \
+-e SUB_PASSWORD=your_password \
+--name=subconverter \
+--restart=always \
+-p 25500:25500 \
+thehaukeng/subconverter
 ```
 
 ### docker-compose 部署
+
 ```shell
 mkdir -p subconverter && cd subconverter
 wget https://git.io/JXES5 -O docker-compose.yml
+
+# 修改环境变量 SUB_PASSWORD
 docker-compose up -d
 ``` 
 
-### Nginx反向代理（推荐）
+### Nginx 反向代理（推荐）
+
 配置 Nginx 反向代理方便访问，配置参考如下，请自行替换`域名`和`证书`信息.
 
 ```nginx

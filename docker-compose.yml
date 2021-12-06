@@ -1,8 +1,10 @@
 version: '3'
 services:
   subconverter:
-    image: ghcr.io/haukeng/subconverter
+    image: thehaukeng/subconverter
     container_name: subconverter
     restart: always
+    environment:
+      - SUB_PASSWORD=You_Password # Please Modify This
     ports:
       - "25500:25500"
