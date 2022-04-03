@@ -1,4 +1,4 @@
-FROM alpine:3.14 AS base
+FROM alpine:latest AS base
 
 RUN apk add --no-cache tzdata && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
@@ -6,10 +6,10 @@ RUN apk add --no-cache tzdata && \
     apk del tzdata && \
     adduser -D subconverter
 
-FROM alpine:3.14 AS downloader
+FROM alpine:latest AS download
 
 ARG TARGETPLATFORM
-ENV VERSION v0.7.1
+ENV VERSION v0.7.2
 
 WORKDIR /
 
@@ -36,8 +36,8 @@ USER subconverter
 
 WORKDIR /home/subconverter
 
-COPY --from=downloader /usr/bin/subconverter /usr/bin/
-COPY --from=downloader --chown=subconverter:subconverter /subconverter .
+COPY --from=download /usr/bin/subconverter /usr/bin/
+COPY --from=download --chown=subconverter:subconverter /subconverter .
 COPY --chown=subconverter:subconverter config .
 
 EXPOSE 25500
