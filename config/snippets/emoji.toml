@@ -67,7 +67,7 @@ match = "(保加利亚|Bulgaria)"
 emoji = "🇧🇬"
 
 [[emoji]]
-match = "(Brazil|Paulo|巴西|圣保罗)"
+match = "(Brazil|Paulo|巴西|圣保罗|聖保羅)"
 emoji = "🇧🇷"
 
 [[emoji]]
@@ -115,7 +115,7 @@ match = "(埃及|Egypt)"
 emoji = "🇪🇬"
 
 [[emoji]]
-match = "(?i:\\bES[P]?\\b|Spain|西班牙)"
+match = "(?i:\\bES[P]?\\b|Spain|西班牙|馬德里|马德里)"
 emoji = "🇪🇸"
 
 [[emoji]]
