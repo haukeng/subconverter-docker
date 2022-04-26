@@ -32,22 +32,6 @@ rule = [
 ]
 
 [[custom_groups]]
-name = "🎞️ HBO"
-type = "select"
-rule = [
-    "[]🌍 国际流媒体",
-    ".*"
-]
-
-[[custom_groups]]
-name = "🎞️ Disney+"
-type = "select"
-rule = [
-    "[]🌍 国际流媒体",
-    ".*"
-]
-
-[[custom_groups]]
 name = "📺 中国流媒体"
 type = "select"
 rule = [

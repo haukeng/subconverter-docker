@@ -19,22 +19,8 @@ prepend_insert_url = true
 # Exclude nodes which remarks match the following patterns. Supports regular expression.
 exclude_remarks = ["(到期|剩余流量|时间|官网|产品)"]
 
-# Only include nodes which remarks match the following patterns. Supports regular expression.
-#include_remarks = ["V3.*港"]
-
 # Enable script support for filtering nodes
 enable_filter = false
-# Script used for filtering nodes. Supports inline script and script path. A "filter" function with 1 argument which is a node should be defined in the script.
-# Example: Inline script: Set value to content of script.
-#          Script path: Set value to "path:/path/to/script.js".
-#filter_script = '''
-#function filter(node) {
-#    const info = JSON.parse(node.ProxyInfo);
-#    if(info.EncryptMethod.includes('chacha20'))
-#	    return true;
-#    return false;
-#}
-#'''
 
 # Setting an external config file as default when none is specified, supports local files/URL
 # default_external_config = "config/example_external_config.toml"
@@ -117,24 +103,11 @@ skip_cert_verify_flag = false
 tls13_flag = false
 
 sort_flag = false
-# Script used for sorting nodes. A "compare" function with 2 arguments which are the 2 nodes to be compared should be defined in the script. Supports inline script and script path.
-# Examples can be seen at the filter_script option in [common] section.
-#sort_script = '''
-#function compare(node_a, node_b) {
-#   return info_a.Remark > info_b.Remark;
-#}
-#'''
 
 filter_deprecated_nodes = false
 append_sub_userinfo = true
 clash_use_new_field_name = true
 
-# Generate style of the proxies section of Clash subscriptions.
-# Supported styles: block, flow, compact
-# Block: - name: name1    Flow: - {name: name1, key: value}    Compact: [{name: name1, key: value},{name: name2, key: value}]
-#         key: value           - {name: name2, key: value}
-#       - name: name2
-#         key: value
 clash_proxies_style = "flow"
 
 [[node_pref.rename_node]]
@@ -166,32 +139,7 @@ add_emoji = true
 remove_old_emoji = true
 
 [[emojis.emoji]]
-#match = '(流量|时间|应急)'
-#emoji = '🏳️‍🌈'
 import = "snippets/emoji.toml"
-
-# [[custom_groups]]
-# name = "Auto"
-# type = "url-test"
-# rule = [".*"]
-# url = "http://www.gstatic.com/generate_204"
-# interval = 300
-# tolerance = 150
-# lazy = true
-
-# [[custom_groups]]
-# name = "Proxy"
-# type = "select"
-# rule = [".*", "[]DIRECT"]
-# disable_udp = false
-
-# [[custom_groups]]
-# name = "LoadBalance"
-# type = "load-balance"
-# rule = [".*", "[]Proxy", "[]DIRECT"]
-# interval = 100
-# strategy = "consistent-hashing"
-# url = "http://www.gstatic.com/generate_204"
 
 [[custom_groups]]
 import = "snippets/groups.toml"
@@ -205,12 +153,6 @@ overwrite_original_rules = false
 
 # Perform a ruleset update on request
 update_ruleset_on_request = false
-
-# [[rulesets]]
-# group = "Proxy"
-# ruleset = "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list"
-# type = "surge-ruleset"
-# interval = 86400
 
 [[rulesets]]
 import = "snippets/rulesets.toml"
@@ -234,80 +176,14 @@ value = "true"
 key = "clash.log_level"
 value = "info"
 
-[[aliases]]
-uri = "/clash"
-target = "/sub?target=clash"
-
-[[aliases]]
-uri = "/clashr"
-target = "/sub?target=clashr"
-
-[[aliases]]
-uri = "/surge"
-target = "/sub?target=surge"
-
-[[aliases]]
-uri = "/quan"
-target = "/sub?target=quan"
-
-[[aliases]]
-uri = "/quanx"
-target = "/sub?target=quanx"
-
-[[aliases]]
-uri = "/mellow"
-target = "/sub?target=mellow"
-
-[[aliases]]
-uri = "/surfboard"
-target = "/sub?target=surfboard"
-
-[[aliases]]
-uri = "/loon"
-target = "/sub?target=loon"
-
-[[aliases]]
-uri = "/ss"
-target = "/sub?target=ss"
-
-[[aliases]]
-uri = "/ssd"
-target = "/sub?target=ssd"
-
-[[aliases]]
-uri = "/sssub"
-target = "/sub?target=sssub"
-
-[[aliases]]
-uri = "/ssr"
-target = "/sub?target=ssr"
-
-[[aliases]]
-uri = "/v2ray"
-target = "/sub?target=v2ray"
-
-[[aliases]]
-uri = "/trojan"
-target = "/sub?target=trojan"
-
-[[aliases]]
-uri = "/test"
-target = "/render?path=templates/test.tpl"
-
-#[[tasks]]
-#name = "tick"
-#cronexp = "0/10 * * * * ?"
-#path = "tick.js"
-#timeout = 3
-
 [server]
 listen = "0.0.0.0"
 port = 25500
-serve_file_root = "web"
+serve_file_root = ""
 
 [advanced]
-log_level = "debug"
-print_debug_info = true
+log_level = "info"
+print_debug_info = false
 max_pending_connections = 10240
 max_concurrent_threads = 4
 max_allowed_rulesets = 64

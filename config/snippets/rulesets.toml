@@ -35,22 +35,6 @@ group = "🎞️ NETFLIX"
 ruleset = "rules/DivineEngine/Surge/Ruleset/StreamingMedia/Video/Netflix.list"
 
 [[rulesets]]
-group = "🎞️ HBO"
-ruleset = "rules/DivineEngine/Surge/Ruleset/StreamingMedia/Video/HBO.list"
-
-[[rulesets]]
-group = "🎞️ HBO"
-ruleset = "rules/DivineEngine/Surge/Ruleset/StreamingMedia/Video/HBO-Asia.list"
-
-[[rulesets]]
-group = "🎞️ HBO"
-ruleset = "rules/DivineEngine/Surge/Ruleset/StreamingMedia/Video/HBO-GO-HKG.list"
-
-[[rulesets]]
-group = "🎞️ Disney+"
-ruleset = "rules/DivineEngine/Surge/Ruleset/StreamingMedia/Video/DisneyPlus.list"
-
-[[rulesets]]
 group = "🌍 国际流媒体"
 ruleset = "rules/DivineEngine/Surge/Ruleset/StreamingMedia/Streaming.list"
 
